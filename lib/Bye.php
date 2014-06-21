@@ -3,18 +3,25 @@
 class Bye {
 
 	static function ifInvalidMethod() {
-		self::echoJsonResponse(40000, 'Invalid Method.', array());
+		self::outputFailure(40000, 'Invalid Method.');
 	}
 
 	static function ifInvalidParams() {
-		self::echoJsonResponse(40001, 'Invalid Params.', array());
+		self::outputFailure(40001, 'Invalid Params.');
 	}
 
 	static function ifSuccess(Array $result) {
-		self::echoJsonResponse(20000, 'OK', $result);
+		self::outputSuccess(20000, 'OK', $result);
 	}
 
-	private static function echoJsonResponse($code, $message, Array $result) {
+	private static function outputFailure($code, $message) {
+		//header('Access-control-allow-origin: *');
+		header('Content-Type: application/json; charset=utf-8');
+		header('X-Content-Type-Options: nosniff');
+		exit(json_encode(array('code' => $code, 'message' => $message)));
+	}
+
+	private static function outputSuccess($code, $message, Array $result) {
 		//header('Access-control-allow-origin: *');
 		header('Content-Type: application/json; charset=utf-8');
 		header('X-Content-Type-Options: nosniff');
