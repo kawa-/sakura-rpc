@@ -2,7 +2,7 @@
 
 PHP で書かれた、自分用の JSON-API のひな形。いつも似たようなのを作っているのでテンプレ化してみる。
 
-※ JSON-RPC 2.0 をすこし参考にしている。
+※ JSON-RPC 2.0 を参考にした。
 
 ## インストール方法
 
@@ -22,18 +22,16 @@ $ curl -d 'method=add&num1=100&num2=200' localhost:8080 | jq "."
 }
 
 # 存在しないメソッドの呼び出し
-$ curl -d 'method=error' localhost:8080 | jq "."
+$ curl -d 'method=add123' localhost:8080 | jq "."
 {
-  "result": [],
-  "message": "Invalid Method",
+  "message": "Invalid Method.",
   "code": 40000
 }
 
 # 不適切なパラメータ (想定されていないパラメータ num3 を使っている)
 $ curl -d 'method=add&num1=100&num3=200' localhost:8080 | jq "."
 {
-  "result": [],
-  "message": "Invalid Params",
+  "message": "Invalid Params.",
   "code": 40001
 }
 ~~~
