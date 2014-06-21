@@ -7,7 +7,7 @@ class Bye {
 	}
 
 	static function ifInvalidParams() {
-		self::echoJsonResponse(40001, 'Invalid Params', array());
+		self::echoJsonResponse(40001, 'Invalid Params.', array());
 	}
 
 	static function ifSuccess(Array $result) {
