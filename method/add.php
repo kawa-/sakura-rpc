@@ -15,6 +15,6 @@ function add() {
 
 	$sum = $num1 + $num2;
 
-	Bye::ifSuccess(array($sum));
+	Bye::ifSuccess($sum);
 }
 

@@ -7,6 +7,7 @@ PHP で書かれた、自分用の JSON-API のひな形。いつも似たよう
 ## インストール方法
 
 ~~~
+$ https://github.com/kawa-/sakura-rpc
 $ cd sakura-rpc
 $ cd pub
 $ php -S localhost:8080
@@ -14,9 +15,7 @@ $ php -S localhost:8080
 # メソッド呼び出し
 $ curl -d 'method=add&num1=100&num2=200' localhost:8080 | jq "."
 {
-  "result": [
-    300
-  ],
+  "result": 300,
   "message": "OK",
   "code": 20000
 }

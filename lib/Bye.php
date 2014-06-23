@@ -10,7 +10,7 @@ class Bye {
 		self::outputFailure(40001, 'Invalid Params.');
 	}
 
-	static function ifSuccess(Array $result) {
+	static function ifSuccess($result) {
 		self::outputSuccess(20000, 'OK', $result);
 	}
 
@@ -21,7 +21,7 @@ class Bye {
 		exit(json_encode(array('code' => $code, 'message' => $message)));
 	}
 
-	private static function outputSuccess($code, $message, Array $result) {
+	private static function outputSuccess($code, $message, $result) {
 		//header('Access-control-allow-origin: *');
 		header('Content-Type: application/json; charset=utf-8');
 		header('X-Content-Type-Options: nosniff');
